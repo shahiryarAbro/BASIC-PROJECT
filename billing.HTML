@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BILLING-AREA</title>
+<link rel="stylesheet" href="C:\Users\Sc\Desktop\MORE ADVANCE INSHALLAH FOR SELL\ALL STYLE.CSS">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+ 
+<script src="C:\Users\Sc\Desktop\MORE ADVANCE INSHALLAH FOR SELL\JAVA  SCRIPT\UNIFIED-MEDICINE-DB.JS"></script>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+
+<script src="C:\Users\Sc\Desktop\MORE ADVANCE INSHALLAH FOR SELL\JAVA  SCRIPT\BILLING.JS"></script>
+
+
+</head>
+<body>
+<header>
+<div class="page">BILLING AREA</div>
+<div class="links">
+    <a href="index.html">DASHBOARD</a>
+    <a href="medicine's inventory.html"></i>MEDICINES INVENTORY</a>
+    <a href="sales history.html"> SALES HISTORY</a>
+    <a href="stock-management.html">STOCK-MANAGEMENT</a>
+    <a href="contact us.html">CONTACT US</a>
+</div>
+</header>
+
+<div class="bill">
+<div class="bill-header">
+    <h3>PHARMACY BILL</h3>
+</div>
+
+<div class="patient-section">
+    <h4>PATIENT DETAILS</h4>
+        
+<div class="form-row">
+    <div class="form-group">
+    <label> Sr No:</label>
+    <input type="number" id="srNo" class="sr-input" value="1" min="1" max="3000">
+</div>
+            
+<div class="form-group">
+    <label>Patient Name:</label>
+    <input type="text" id="patientName" class="patient-input" placeholder="Enter full name" required>
+</div>
+</div>
+        
+<div class="form-row">
+<div class="form-group">
+    <label>Doctor:</label>
+<select id="doctorName" class="doctor-select">
+    <option value="">Select Doctor</option>
+        <option value="Dr. Shahid - Cardiologist">Dr. Shahid - Cardiologist</option>
+        <option value="Dr. Fatima - Pediatrician">Dr. Fatima - Pediatrician</option>
+        <option value="Dr. Ahmed - General Physician">Dr. Ahmed - General Physician</option>
+        <option value="Dr. Sara - Dermatologist">Dr. Sara - Dermatologist</option>
+        <option value="Dr. Ali - Orthopedic">Dr. Ali - Orthopedic</option>
+</select>
+</div>
+            
+<div class="form-group">
+    <label>Date:</label>
+    <input type="date" id="billDate" class="date-input">
+</div>
+</div>
+        
+<div class="form-row">
+<div class="form-group">
+    <label>Email Bill To:</label>
+    <input type="email" id="patientEmail" class="email" placeholder="patient@example.com">
+    <large style="color: #666; display: block;">Optional - Leave Blank To Skip mail</large>
+</div>
+            
+<div class="form-group">
+    <label>Phone:</label>
+    <input type="tel" id="patientPhone" class="number" placeholder="+92 XXX XXXXXXX">
+</div>
+</div>
+</div>
+
+    <h4 class="medicines-header">MEDICINE'S COUNTER</h4>
+<div class="medicine-search">
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" id="medicineSearch" placeholder="Search medicines..." onkeyup="filterMedicines()">
+</div>
+<div id="medicinesContainer"></div>
+    
+<button class="add-more-btn" onclick="addMedicine()">Add Medicine</button>
+    
+<div class="discount-section">
+    <div class="form-row">
+    <div class="form-group">
+    <label>Discount %:</label>
+    <input type="number" id="discountPercent" class="discount-input" value="0" min="0" max="100" onchange="calculateTotal()">
+</div>
+            
+<div class="form-group">
+    <label>Tax %:</label>
+    <input type="number" id="taxPercent" class="tax-input" value="0" min="0" max="100" onchange="calculateTotal()">
+</div>
+</div>
+</div>
+    
+<div class="total-section" id="totalAmount">
+<div class="total-breakdown">
+    <span>Subtotal: <span id="subtotal">RS 0</span></span>
+    <span>Discount: <span id="discountAmount">RS 0</span></span>
+    <span>Tax: <span id="taxAmount">RS 0</span></span>
+</div>
+        
+<div class="grand-total">
+    GRAND TOTAL: RS <span id="grandTotal">0</span>
+</div>
+</div>
+    
+<div class="action-buttons">
+    <button class="generate-btn" onclick="showBill()">PREVIEW BILL</button>
+    <button class="email-btn" onclick="sendBillByEmail()">EMAIL BILL</button>
+    <button class="save-btn" onclick="saveToHistory()">SAVE TO HISTORY</button>
+    <button class="print-btn" onclick="printBill()">PRINT</button>
+</div>
+    
+<div class="bill-preview" id="billPreview">
+    <h3>PHARMACY BILL</h3>
+<div id="billContent" class="bill-content"></div>
+</div>
+</div>
+
+<footer class="footer">
+    <p>© 2026 PHARMACY MANAGEMENT SYSTEM | DEVELOPER SHAHIRYAR ABRO</p>
+</footer>
+
+
+</body>
+</html>
